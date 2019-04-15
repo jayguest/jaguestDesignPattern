@@ -17,6 +17,10 @@ public class Facade {
     public Manufacturer owner; // manufacturer the facade interfaces for
     public ArrayList<Car> cart; // keeps track of cars ordered through facade
 
+    /**
+     * Simple facade constructor, all it needs to instantiate is a manufacturer
+     * I will probably add implementation for existing manufacturers.
+     */
     public Facade(){
         this.owner = new Manufacturer("Maker");
         cart = new ArrayList<>();
@@ -63,7 +67,10 @@ public class Facade {
         }
     }
 
-
+    /**
+     * Once the client is done ordering, they can checkout to have teh cars sent to them
+     * @return the ordered cars
+     */
     public Car[] Checkout(){
         Car[] cars = new Car[cart.size()];
         for(int i = 0;i < cart.size();i++){
