@@ -6,6 +6,7 @@ package main.java;
 public class Factory {
     public Model model;
     public Manufacturer owner;
+    public Car[] stock;
 
     public Factory(Manufacturer owner,Model model){
         this.model = model;
@@ -15,9 +16,8 @@ public class Factory {
     /**
      * Builds a set of Cars by request from dealership
      * @param request is the number of cars to build
-     * @return the delivery of cars
      */
-    Car[] build(int request){
+    public void build(int request){
         Car[] delivery = new Car[request];
 
         for(int i = 0;i < request;i++){
@@ -30,7 +30,11 @@ public class Factory {
             }
         }
 
-        return delivery;
+        this.stock = delivery;
+    }
+
+    public void resetStock(){
+        this.stock = null;
     }
 
 }

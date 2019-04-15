@@ -20,6 +20,7 @@ public class Dealership {
      */
     public Car[] request(int request){
         this.owner.sales += request; // keep track of sales
-        return provider.build(request);
+        provider.build(request);
+        return provider.stock;
     }
 }
