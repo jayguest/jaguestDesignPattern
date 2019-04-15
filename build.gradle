@@ -1,0 +1,61 @@
+plugins {
+	//id 'com.github.spotbugs' version '1.6.10'
+	id 'checkstyle'
+}
+
+apply plugin: 'application'
+
+mainClassName = 'main.java.Main'
+
+//compileJava.options.encoding = 'UTF-8'
+
+//def version = '1.0'
+//def build = '1.0'
+
+// Repositories and dependencies for code go here
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testCompile "junit:junit:4.12"
+  compile "junit:junit:4.12"
+  //spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.7.1'
+}
+
+
+//CHECKSTYLE:
+apply plugin: 'checkstyle'
+checkstyle {
+  // Keep checkstyle a little quieter
+  ignoreFailures = true
+  showViolations = false
+}
+
+
+tasks.withType(Checkstyle) {
+  reports {
+    html.enabled = true
+    xml.enabled = false
+  }
+}
+checkstyle {
+	toolVersion = "8.8"
+}
+
+
+//SPOTBUGS:
+
+//spotbugs {
+  //toolVersion = '3.1.1'
+  //ignoreFailures = true
+//}
+
+// To generate an HTML report instead of XML
+//tasks.withType(com.github.spotbugs.SpotBugsTask) {
+  //reports {
+    //xml.enabled = false
+    //html.enabled = true
+  //}
+//}
+
