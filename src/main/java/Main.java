@@ -32,7 +32,7 @@ public class Main {
         for(int i = 0;i < test.length;i++){
             reader.constructRequest(1,test[i].model);
         }
-        System.out.println("Builder results: (will return what the factories made");
+        System.out.println("Builder results: (will return what the factories made)");
         for(int j = 0;j < reader.runResult.size();j++){
             System.out.print(reader.runResult.get(j).model + " ");
         }
