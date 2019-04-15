@@ -2,6 +2,7 @@ package main.java;
 
 import main.java.Builder.Builder;
 import main.java.Builder.Reader;
+import main.java.Facade.Facade;
 
 /**
  * main.java.Main class
@@ -38,6 +39,30 @@ public class Main {
         }
         System.out.println();
 
+        System.out.println();
+        System.out.println("Pattern: Facade");
+        // Wanted interface: Order(), Checkout(), that's all the user wants to have to do
+        // simple way to order car(s) and then request them to be sent to client
+        // without the confusion of going through dealer->factory->manufacturer
+
+        Facade salesman = new Facade();
+
+        salesman.Order(2,Model.HYBRID);
+        salesman.Order(4,Model.TRUCK);
+        Car[] order1 = salesman.Checkout();
+        for(int o = 0;o < order1.length;o++){
+            System.out.print(order1[o].model + " ");
+        }
+        System.out.println();
+
+        System.out.println();
+        salesman.Order(3,Model.SPORT);
+        salesman.Order(5,Model.HYBRID);
+        Car[] order2 = salesman.Checkout();
+        for(int p = 0;p < order2.length;p++){
+            System.out.print(order2[p].model + " ");
+        }
+        System.out.println();
 
 
     }
