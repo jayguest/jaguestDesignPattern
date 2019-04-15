@@ -1,11 +1,13 @@
 package main.java;
 
+import main.java.Command.Receive;
+
 /**
  * Defines the class which generates orders for cars from Factory
  */
 public class Dealership {
     private Model model;
-    private Factory provider;
+    public Factory provider;
     private Manufacturer owner;
 
     public Dealership(Factory provider){
@@ -22,5 +24,13 @@ public class Dealership {
         this.owner.sales += request; // keep track of sales
         provider.build(request);
         return provider.stock;
+    }
+    
+    /**
+     * Method used in the command design pattern to process command
+     * @param process is the command
+     */
+    public void processReceive(Receive process) {
+        process.Execute();
     }
 }
