@@ -17,6 +17,10 @@ public class Reader {
     public Builder builder;
 
 
+    public Reader(){
+        this.runResult = new ArrayList<>();
+    }
+
     // will receive orders for car objects (sport, truck or hybrid)
     // but all will be car, which is the common case
 
