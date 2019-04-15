@@ -1,4 +1,4 @@
-package main.java.Builder;
+package main.java;
 
 /**
  * Defines the model or type of car which dealerships can sell

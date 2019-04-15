@@ -1,4 +1,4 @@
-package main.java.Builder;
+package main.java;
 
 /**
  * Defines different parts the cars can be comprised of

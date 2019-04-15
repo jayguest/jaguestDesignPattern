@@ -1,4 +1,4 @@
-package main.java.Builder;
+package main.java;
 
 /**
  * Defines the class which generates orders for cars from Factory

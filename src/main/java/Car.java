@@ -1,4 +1,4 @@
-package main.java.Builder;
+package main.java;
 
 /**
  * Defines an abstract class for cars to extend

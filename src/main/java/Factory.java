@@ -1,4 +1,4 @@
-package main.java.Builder;
+package main.java;
 
 /**
  * Defines the model which will instantiated for specific car types

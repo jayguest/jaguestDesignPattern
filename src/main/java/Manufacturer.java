@@ -1,4 +1,4 @@
-package main.java.Builder;
+package main.java;
 
 import java.util.ArrayList;
 
