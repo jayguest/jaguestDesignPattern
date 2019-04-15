@@ -1,5 +1,6 @@
 package main.java.Command;
 
+import main.java.Manufacturer;
 import main.java.Model;
 
 /**
@@ -12,12 +13,19 @@ import main.java.Model;
  */
 public class Order implements Command{
 
-    private int number; // number of cars
-    private Model model; // make of cars
+    public Manufacturer owner;
+    public int number; // number of cars
+    public Model model; // make of cars
+    
+    public Order(int number,Model make, Manufacturer owner) {
+        this.number = number;
+        this.model = make;
+        this.owner = owner;
+    }
     
     @Override
     public void Execute() {
-        
+        owner.processOrder(this);
     }
 
 }
