@@ -26,7 +26,9 @@ public class Reader {
 
     public void constructRequest(int num, Model make){
         this.builder.buildRequest(num,make);
+        System.out.print("car requested ");
         requestResult(make);
+        System.out.println("car received ");
     }
 
     public void requestResult(Model make){
