@@ -19,6 +19,7 @@ public class Dealership {
      * @param request is the number of cars requested
      */
     public Car[] request(int request){
+        this.owner.sales += request; // keep track of sales
         return provider.build(request);
     }
 }

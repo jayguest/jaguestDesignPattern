@@ -21,7 +21,13 @@ public class Factory {
         Car[] delivery = new Car[request];
 
         for(int i = 0;i < request;i++){
-            delivery[i] = new Car(this.model,request);
+            if(this.model == Model.HYBRID){
+                delivery[i] = new Hybrid();
+            }else if(this.model == Model.SPORT){
+                delivery[i] = new Sport();
+            }else{
+                delivery[i] = new Truck();
+            }
         }
 
         return delivery;

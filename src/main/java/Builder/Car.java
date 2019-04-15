@@ -8,15 +8,4 @@ public class Car {
     public Part part;
     int deliveryID;
 
-    public Car(Model model,int id){
-        this.deliveryID = id;
-        this.model = model;
-        if(model == Model.SPORT){
-            this.part = Part.SPOILER;
-        }else if(model == Model.HYBRID){
-            this.part = Part.ELECTRIC_ENGINE;
-        }else{
-            this.part = Part.BED;
-        }
-    }
 }
