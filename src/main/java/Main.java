@@ -3,6 +3,7 @@ package main.java;
 import main.java.Builder.Builder;
 import main.java.Builder.Reader;
 import main.java.Facade.Facade;
+import main.java.Mediator.Mediator;
 
 /**
  * main.java.Main class
@@ -65,7 +66,34 @@ public class Main {
         System.out.println();
 
         System.out.println();
+        System.out.println("Pattern: Mediator");
+        // Begin with a manufacturer
+        Manufacturer business = new Manufacturer("Business");
+        // for this last design pattern, I'll get a little bit of variation from the rest
+        // The manufacturer will do business with another
+        Manufacturer other = new Manufacturer("Other");
         
+        Mediator intermediary = new Mediator();
+        // set beginning state
+        intermediary.buyer = business;
+        intermediary.seller = other;
+        
+        business.intermediary = intermediary;
+        other.intermediary = intermediary;
+        
+        business.buy(4, Model.SPORT);
+        other.buy(3, Model.TRUCK);
+        other.buy(5, Model.HYBRID);
+        
+        System.out.println("Initial buyer stock: ");
+        for(int i = 0;i < business.stock.size();i++) {
+            System.out.print(business.stock.get(i).model + " ");
+        }
+        
+        System.out.println("\nInitial seller stock: ");
+        for(int i = 0;i < other.stock.size();i++) {
+            System.out.print(other.stock.get(i).model + " ");
+        }
     }
 
 }
