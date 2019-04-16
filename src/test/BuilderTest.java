@@ -8,17 +8,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import main.java.Car;
 import main.java.Manufacturer;
 import main.java.Model;
-import main.java.Facade.Facade;
+import main.java.Builder.Builder;
+import main.java.Builder.Reader;
 
-public class FacadeTest {
+public class BuilderTest {
 
-    public Facade test;
-    public Facade test2;
-    public Manufacturer owner;
-    
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         
@@ -36,7 +32,7 @@ public class FacadeTest {
      */
     @Before
     public void setUp() throws Exception {
-        
+    
     }
 
     /**
@@ -44,34 +40,27 @@ public class FacadeTest {
      */
     @After
     public void tearDown() throws Exception {
-        
     }
     
     @Test
     public void testConstructor() {
-        test = new Facade();
+        Manufacturer owner = new Manufacturer("one");
+        Builder test = new Builder(owner);
         assertNotNull(test);
+        Reader read = new Reader();
+        assertNotNull(read);
     }
     
     @Test
-    public void OrderTest() {
-        test2 = new Facade();
-        owner = new Manufacturer("Test");
-        test2.owner = owner;
-        assertNotNull(owner);
-        test2.Order(1, Model.SPORT);
-        assertTrue(test2.cart.size() != 0);
-    }
-    
-    @Test
-    public void checkoutTest() {
-        Facade test = new Facade();
-        owner = new Manufacturer("Test");
-        test.owner = owner;
-        test.Order(1, Model.HYBRID);
-        Car[] newCar = test.Checkout();
-        assertNotNull(newCar);
-        assertTrue(newCar.length != 0);
+    public void testConstructRequest() {
+        Reader read = new Reader();
+        Manufacturer owner = new Manufacturer("one");
+        Builder test = new Builder(owner);
+        read.builder = test;
+        read.constructRequest(1, Model.SPORT);
+        assertTrue(read.runResult.size() != 0);
+        read.constructRequest(4, Model.TRUCK);
+        assertTrue(read.runResult.size() >= 4);
     }
 
 }
