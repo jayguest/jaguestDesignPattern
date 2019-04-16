@@ -1,10 +1,9 @@
 package main.java.Facade;
 
+import java.util.ArrayList;
 import main.java.Car;
 import main.java.Manufacturer;
 import main.java.Model;
-
-import java.util.ArrayList;
 
 /**
  * This class provides a simple interface to the more complex system.
@@ -21,7 +20,7 @@ public class Facade {
      * Simple facade constructor, all it needs to instantiate is a manufacturer
      * I will probably add implementation for existing manufacturers.
      */
-    public Facade(){
+    public Facade() {
         this.owner = new Manufacturer("Maker");
         cart = new ArrayList<>();
     }
@@ -37,7 +36,7 @@ public class Facade {
         if (owner.factories.size() == 0) {
             owner.buyFactory(make);
             owner.factories.get(0).build(num);
-            for(int k = 0;k < owner.factories.get(0).stock.length;k++){
+            for (int k = 0;k < owner.factories.get(0).stock.length;k++) {
                 cart.add(owner.factories.get(0).stock[k]); // add the ordered cars to cart
             }
             owner.factories.get(0).resetStock();
@@ -45,7 +44,7 @@ public class Facade {
             for (int i = 0; i < owner.factories.size(); i++) {
                 if (owner.factories.get(i).model == make) { // factory for the make exists
                     owner.factories.get(i).build(num);
-                    for(int k = 0;k < owner.factories.get(i).stock.length;k++){
+                    for (int k = 0;k < owner.factories.get(i).stock.length;k++) {
                         cart.add(owner.factories.get(i).stock[k]); // add the ordered cars to cart
                     }
                     owner.factories.get(i).resetStock();
@@ -57,7 +56,7 @@ public class Facade {
             for (int j = 0; j < owner.factories.size(); j++) {
                 if (owner.factories.get(j).model == make) {
                     owner.factories.get(j).build(num);
-                    for(int l = 0;l < owner.factories.get(j).stock.length;l++){
+                    for (int l = 0;l < owner.factories.get(j).stock.length;l++) {
                         cart.add(owner.factories.get(j).stock[l]); // add the ordered cars to cart
                     }
                     owner.factories.get(j).resetStock();
@@ -67,13 +66,13 @@ public class Facade {
         }
     }
 
-    /**
+    /**.
      * Once the client is done ordering, they can checkout to have teh cars sent to them
      * @return the ordered cars
      */
-    public Car[] Checkout(){
+    public Car[] Checkout() {
         Car[] cars = new Car[cart.size()];
-        for(int i = 0;i < cart.size();i++){
+        for (int i = 0;i < cart.size();i++) {
             cars[i] = cart.get(i);
         }
         cart.clear(); // empty the cart between orders

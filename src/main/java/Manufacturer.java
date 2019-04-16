@@ -1,12 +1,9 @@
 package main.java;
 
 import java.util.ArrayList;
-
-
-import main.java.Mediator.Mediator;
-
 import main.java.Command.Order;
 import main.java.Command.Receive;
+import main.java.Mediator.Mediator;
 
 /**.
  * Defines the class which owns Factory and Dealerships

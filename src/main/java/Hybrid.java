@@ -1,8 +1,8 @@
 package main.java;
 
-public class Hybrid extends Car{
+public class Hybrid extends Car {
 
-    public Hybrid(){
+    public Hybrid() {
         this.model = Model.HYBRID;
         this.part = Part.ELECTRIC_ENGINE;
     }
