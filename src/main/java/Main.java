@@ -66,6 +66,27 @@ public class Main {
         System.out.println();
 
         System.out.println();
+        System.out.println("Pattern: Command");
+        ArrayList<Order> orders = new ArrayList<>();
+        Manufacturer tesla = new Manufacturer("Tesla");
+        
+        // orders queued up
+        orders.add(new Order(2,Model.HYBRID,tesla));
+        orders.add(new Order(3,Model.TRUCK,tesla));
+        orders.add(new Order(1,Model.SPORT,tesla));
+        
+        System.out.println("Orders generated: ");
+        for(int i = 0;i < orders.size();i++) {
+            System.out.print(orders.get(i).number + " " + orders.get(i).model + "  ");
+        }System.out.println();
+        
+        // execute orders
+        for(int order = 0;order < orders.size();order++) {
+            orders.get(order).Execute();
+        }
+        System.out.println();
+        
+        System.out.println();
         System.out.println("Pattern: Mediator");
         // Begin with a manufacturer
         Manufacturer business = new Manufacturer("Business");
