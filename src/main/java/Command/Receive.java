@@ -11,7 +11,7 @@ import main.java.Car;
  * @author Jason Guest
  *
  */
-public class Receive implements Command{
+public class Receive implements Command {
 
     public ArrayList<Car> order;
     
@@ -22,7 +22,7 @@ public class Receive implements Command{
     @Override
     public void Execute() {
         System.out.println("\nCars delivered:");
-        for(int i = 0;i < this.order.size();i++) {
+        for (int i = 0;i < this.order.size();i++) {
             System.out.print(this.order.get(i).model + " ");
         }
     }

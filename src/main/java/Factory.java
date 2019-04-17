@@ -1,6 +1,6 @@
 package main.java;
 
-/**
+/**.
  * Defines the model which will instantiated for specific car types
  */
 public class Factory {
@@ -8,24 +8,25 @@ public class Factory {
     public Manufacturer owner;
     public Car[] stock;
 
-    public Factory(Manufacturer owner,Model model){
+    public Factory(Manufacturer owner,Model model) {
         this.model = model;
         this.owner = owner;
     }
 
-    /**
+    /**.
      * Builds a set of Cars by request from dealership
      * @param request is the number of cars to build
      */
-    public void build(int request){
+    public void build(int request) {
+        
         Car[] delivery = new Car[request];
 
-        for(int i = 0;i < request;i++){
-            if(this.model == Model.HYBRID){
+        for (int i = 0;i < request;i++) {
+            if (this.model == Model.HYBRID) {
                 delivery[i] = new Hybrid();
-            }else if(this.model == Model.SPORT){
+            } else if (this.model == Model.SPORT) {
                 delivery[i] = new Sport();
-            }else{
+            } else {
                 delivery[i] = new Truck();
             }
         }
@@ -33,7 +34,7 @@ public class Factory {
         this.stock = delivery;
     }
 
-    public void resetStock(){
+    public void resetStock() {
         this.stock = null;
     }
 
