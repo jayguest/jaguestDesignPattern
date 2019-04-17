@@ -23,11 +23,6 @@ public class Mediator {
      * @return the cars
      */
     public Car[] receive(Manufacturer buyer,int num,Model make) {
-        if (buyer.equals(this.seller)) { // ensure we don't get someone buying from themselves
-            Manufacturer temp = this.buyer;
-            this.buyer = buyer;
-            this.seller = temp;
-        }
         
         Car[] order;
         order = seller.sell(num, make); // call the seller to make the cars requested

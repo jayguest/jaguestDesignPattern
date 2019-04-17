@@ -59,6 +59,8 @@ public class CommandTest {
         Order order = new Order(num,Model.SPORT,test);
         Receive rec = new Receive();
         order.Execute();
+        Order next = new Order(4,Model.TRUCK,test);
+        next.Execute();
     }
 
 }

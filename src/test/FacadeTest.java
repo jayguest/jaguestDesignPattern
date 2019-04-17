@@ -72,6 +72,9 @@ public class FacadeTest {
         Car[] newCar = test.Checkout();
         assertNotNull(newCar);
         assertTrue(newCar.length != 0);
+        
+        test.Order(3, Model.SPORT);
+        test.Order(3, Model.TRUCK);
     }
 
 }

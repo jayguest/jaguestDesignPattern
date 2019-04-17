@@ -49,6 +49,9 @@ public class BuilderTest {
         assertNotNull(test);
         Reader read = new Reader();
         assertNotNull(read);
+        owner.buyFactory(Model.SPORT);
+        owner.createDealerships();
+        assertTrue(owner.dealers.size() != 0);
     }
     
     @Test

@@ -59,7 +59,11 @@ public class MediatorTest {
         test.seller = seller;
         buyer.buy(1,Model.SPORT);
         assertTrue(buyer.stock.size() != 0);
+        //seller.buy(2, Model.HYBRID);
+        buyer.buy(3, Model.TRUCK);
         
+        seller.factories.get(0).build(2);
+        buyer.buy(4,seller.factories.get(0).model);
     }
 
 }
